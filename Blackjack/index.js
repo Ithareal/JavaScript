@@ -16,12 +16,19 @@ firstCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
 secondCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
 sum = firstCard + secondCard + nextCard
 
+let cards = [firstCard, secondCard]
+
 function startGame() {
     renderGame()
 }
 function renderGame() {
 
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
+    cardsEl.textContent = "Cards: "
+
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+        console.log(cards[i])
+    }
     sumEl.textContent = "Sum: " + sum
 
     if (sum < 21) {
@@ -40,6 +47,8 @@ function newCard() {
     console.log("Drawing a new card from the deck!")
     nextCard = Math.floor(Math.random() * (11 - 2 + 1)) + 2
     sum += nextCard
+    cards.push(nextCard)
+    console.log(cards)
     renderGame()
 }
 
