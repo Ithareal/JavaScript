@@ -3,16 +3,26 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 let password1El = document.getElementById("password1-el")
 let password2El = document.getElementById("password2-el")
+let passwordLengthEl = document.getElementById("passwordlength-el").value
+console.log(passwordLengthEl)
+
+
+let newPassword1 = ""
+let newPassword2 = ""
 
 function generatePasswords(){
-    let newPassword1 = ""
-    let newPassword2 = ""
+    
+    newPassword1 = ""
+    newPassword2 = ""
+
     newPassword1 += randomToString()
     newPassword2 += randomToString()
 
     function randomToString(){
-        let newPasswordFunction = "" 
-        for (let i = 0; i < 16; i++) {
+        let newPasswordFunction = ""
+        let passwordLengthEl = document.getElementById("passwordlength-el").value
+        console.log(passwordLengthEl) 
+        for (let i = 0; i < passwordLengthEl; i++) {
             newPasswordFunction += characters[randomNumber()]
             }
         return newPasswordFunction
@@ -29,6 +39,13 @@ function generatePasswords(){
 }
 
 function copyPassword1() {
-    let copyPassword = password1El
-    navigator.clipboard.writeText(copyPassword)
+    console.log(newPassword1)
+    let copyPassword = document.getElementById("password1-el")
+    navigator.clipboard.writeText(newPassword1)
+}
+
+function copyPassword2() {
+    console.log(newPassword2)
+    let copyPassword = document.getElementById("password2-el")
+    navigator.clipboard.writeText(newPassword2)
 }

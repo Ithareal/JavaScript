@@ -6,10 +6,12 @@
         <h1>Generate a</h1>
         <h2>random password</h2>
         <p>Never use an insecure password again.</p>
+        <p id="p1">How long should the password be? (8-24 characters)</p1><br>
+        <input type="number" id="passwordlength-el" min="8" max="24" autofocus value="12">
         <button onclick="generatePasswords()">Generate passwords</button>
         <hr> 
         <div id="password1-el" onclick="copyPassword1()"></div>
-        <div id="password2-el"></div>
+        <div id="password2-el" onclick="copyPassword2()"></div>
 
         <script src="index.js"></script>
     </body>
