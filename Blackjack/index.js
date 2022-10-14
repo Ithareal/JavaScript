@@ -8,7 +8,7 @@ let playerEl = document.getElementById("player-el")
 let message = ""
 let player = {
     name: "Kim",
-    chips: 200
+    chips: 50
 }
 
 let cards = []
@@ -31,13 +31,16 @@ function getRandomCard() {
 }
 
 function startGame() {
+    if (isAlive === false || hasBlackjack === true) {
     isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
-
+    player.chips -= 10
+    playerEl.textContent = player.name + ": $" + player.chips
     renderGame()
+    }
 }
 function renderGame() {
 
@@ -54,8 +57,10 @@ function renderGame() {
     }else if (sum === 21) {
         message = "You've got Blackjack!"
         hasBlackjack = true
+        player.chips += 50
+        playerEl.textContent = player.name + ": $" + player.chips
     } else {
-        message = "You're out of the game!"
+        message = "You're out of the game! Press START GAME to play another round"
         isAlive = false
     }
     messageEl.textContent = message
