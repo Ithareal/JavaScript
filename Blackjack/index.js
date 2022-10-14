@@ -1,4 +1,4 @@
-// https://scrimba.com/learn/learnjavascript/use-a-function-to-set-the-card-values-cof624b909c18f35f6c7caa2f
+// https://scrimba.com/learn/learnjavascript/objects-and-functions-c3wWM8fb
 
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
