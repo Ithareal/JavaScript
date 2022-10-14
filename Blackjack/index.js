@@ -4,6 +4,7 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
+let startGameEl = document.getElementById("startgame-el")
 
 let message = ""
 let player = {
@@ -31,8 +32,9 @@ function getRandomCard() {
 }
 
 function startGame() {
-    if (isAlive === false || hasBlackjack === true) {
+    if ( (isAlive === false || hasBlackjack === true) && player.chips > 0) {
     isAlive = true
+    hasBlackjack = false
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
@@ -60,8 +62,9 @@ function renderGame() {
         player.chips += 50
         playerEl.textContent = player.name + ": $" + player.chips
     } else {
-        message = "You're out of the game! Press START GAME to play another round"
+        message = "You're out of the game! Press NEW GAME to play another round"
         isAlive = false
+        startGameEl.textContent = "NEW GAME"
     }
     messageEl.textContent = message
 }
