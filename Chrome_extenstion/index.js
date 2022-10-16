@@ -1,0 +1,1 @@
+// https://scrimba.com/learn/learnjavascript/truthy-and-falsy-values-cKrLayTP
