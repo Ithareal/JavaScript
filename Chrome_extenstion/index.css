@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(201, 201, 201);
+}
+
+input {
+    min-width: 400px;
+    margin-bottom: 4px;
+}
+
+button {
+    font-weight: bold;
+    color: green;
+    background-color: rgb(201, 201, 201);
+    border-color: green;
+}
