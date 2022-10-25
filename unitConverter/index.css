@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+    margin: 1px;
+    border: 3px white;
+    border-radius: 5px;
+}
+
+#head-div {
+    background-color: rgb(105, 67, 255);
+    padding-bottom: 60px;
+    width: 100%;
+    margin: none;
+}
+
+#convert-input {
+    color: white;
+    background-color: rgb(105, 67, 255);
+    border-style: solid;
+    border-color: rgb(170, 143, 255);
+    border-radius: 2px;
+    outline: none;
+    border-width: 1px;
+    width: 75px;
+    height: 35px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#convert-btn {
+    background-color: white;
+    color: rgb(123, 123, 123);
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 79px;
+}
+
+div {
+    background-color: white;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#body-div {
+    width: 90%;
+}
+
+p {
+    color: rgb(148, 148, 148);
+    font-size: smaller;
+}
+
+#title {
+    color: rgb(91, 86, 118);
+    border-top: 4px;
+    padding-top: 25px;
+    font-size: larger;
+}
+
+#header {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+}
