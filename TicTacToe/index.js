@@ -28,3 +28,5 @@ function fillSlot(fillSlot){
     fillSlot.innerText = symbol
     fillSlot.innerhtml += "full"
 }
+
+// symbol = player ? 'X' : 'O'
