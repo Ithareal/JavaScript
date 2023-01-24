@@ -1,3 +1,5 @@
+
+
 const homeButtonEl = document.getElementById("home-el")
 const currentGameEl = document.getElementById("currentgame-el")
 const seedGeneratorEl = document.getElementById("seedgenerator-el")
@@ -18,5 +20,4 @@ starvedEl.addEventListener("click", function() {
    starved = !starved
    console.log(starved)
    starvedEl.classList.toggle("clicked")
-
 })
