@@ -49,15 +49,56 @@ function renderGame(slot) {
         console.log(currentPlayer)
         currentPlayer.slot.push(slot.id)
         player =! player
-    if (player1Slots.slot.includes("slot1" && "slot2" && "slot3") || player1Slots.slot.includes("slot4" && "slot5" && "slot6")) {
+        checkWin()
+
+}
+
+function checkWin() {
+    if (
+    //horizontal check
+    currentPlayer.slot.includes("slot1") &&
+    currentPlayer.slot.includes("slot2") &&
+    currentPlayer.slot.includes("slot3") ||
+
+    currentPlayer.slot.includes("slot4") &&
+    currentPlayer.slot.includes("slot5") &&
+    currentPlayer.slot.includes("slot6") ||
+
+    currentPlayer.slot.includes("slot7") &&
+    currentPlayer.slot.includes("slot8") &&
+    currentPlayer.slot.includes("slot9") ||
+
+    //vertical check
+    currentPlayer.slot.includes("slot1") &&
+    currentPlayer.slot.includes("slot4") &&
+    currentPlayer.slot.includes("slot7") ||
+
+    currentPlayer.slot.includes("slot2") &&
+    currentPlayer.slot.includes("slot5") &&
+    currentPlayer.slot.includes("slot8") ||
+
+    currentPlayer.slot.includes("slot3") &&
+    currentPlayer.slot.includes("slot6") &&
+    currentPlayer.slot.includes("slot9") ||
+
+    //diagonal check
+    currentPlayer.slot.includes("slot1") &&
+    currentPlayer.slot.includes("slot5") &&
+    currentPlayer.slot.includes("slot9") ||
+
+    currentPlayer.slot.includes("slot3") &&
+    currentPlayer.slot.includes("slot5") &&
+    currentPlayer.slot.includes("slot7")
+    ) 
+    {
         console.log(player1Slots.slot)
-    btnReset.textContent = "YOU WIN"
-    if (confirm("NEW GAME?")) {
-        
-    }
+        btnReset.textContent = "YOU WIN"
+        if (confirm("NEW GAME?")) {
+    
+        }
     }
 }
-    
+
 }
 function fillSlot(fillSlot) {
     fillSlot.innerText = symbol
