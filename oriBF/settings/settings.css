@@ -3,7 +3,7 @@ body {
     color: rgb(220, 227, 234);
 }
 
-#home-el {
+#seedgenerator-el {
     background-color: rgb(49, 57, 63)
 }
 
@@ -17,14 +17,6 @@ body div button:hover {
     background-color: rgb(49, 57, 63);
 }
 
-div p {
-    display: inline;
-}
-
-div #p1{
-    text-align: left;
-}
-
-div #p2{
-    text-align: right;
+.buttons {
+    margin: 0px 15%;
 }
