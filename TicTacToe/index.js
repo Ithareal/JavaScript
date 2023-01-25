@@ -13,13 +13,18 @@ const slot9 = document.getElementById("slot9")
 const btnReset = document.getElementById("btn1")
 const slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
 
-const player1Slots = []
-const player2Slots = []
+const player1Slots = {
+    slot : [],
+}
+const player2Slots = {
+    slot: [],
+}
 
 let player = true
 let symbol = ""
 const player1 = "Player"
 const player2 = "Computer" 
+let currentPlayer = ""
 
 function resetGame() {
     for (i = 0; i < 9 ; i++) {
@@ -37,14 +42,15 @@ function renderGame(slot) {
     if (slot.classList != "clicked") {
         fillSlot(slot)
         if (player == true) {
-            player1Slots.push(slot.id)
-            console.log(player1Slots)
+            currentPlayer = player1Slots
         } else {
-            player2Slots.push(slot.id)
-            console.log(player2Slots)
+            currentPlayer = player2Slots
         }
+        console.log(currentPlayer)
+        currentPlayer.slot.push(slot.id)
         player =! player
-    if (player1Slots.includes("slot1" && "slot2" && "slot3") || player1Slots.includes("slot4" && "slot5" && "slot6")) {
+    if (player1Slots.slot.includes("slot1" && "slot2" && "slot3") || player1Slots.slot.includes("slot4" && "slot5" && "slot6")) {
+        console.log(player1Slots.slot)
     btnReset.textContent = "YOU WIN"
     if (confirm("NEW GAME?")) {
         
