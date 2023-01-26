@@ -20,12 +20,13 @@ const player2Slots = {
     slot: [],
 }
 
+let btnPickedByComputer = ""
 let player = true
 let symbol = ""
 let currentPlayer = ""
 let playerCount = 2
 const remainingSlotsDefault = ["slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "slot8", "slot9"]
-const remainingSlots = remainingSlotsDefault
+let remainingSlots = remainingSlotsDefault
 function resetGame() {
     for (i = 0; i < 9 ; i++) {
         slots[i].innerHTML = "-"
@@ -67,8 +68,9 @@ function renderGame(slot) {
         checkWin()
         currentPlayer = ""
     }
-    if (playerCount == 2 && player == false) {
-        computerPlays()
+    if (playerCount == 1 && player == false) {
+        //computerPlays()
+        test()
         console.log(player)
         player =! player
         console.log(player)
@@ -132,5 +134,23 @@ function fillSlot(fillSlot) {
 
 function computerPlays() {
     console.log("test")
-    
+    let randomSlot = Math.floor(Math.random() * remainingSlots.length)
+    let computerPickedSlot = remainingSlots.splice(randomSlot, randomSlot)
+    console.log(computerPickedSlot)
 }
+
+function test() {
+    console.log("test")
+    let randomSlot = Math.floor(Math.random() * remainingSlots.length)
+    let computerPickedSlot = remainingSlots.splice(randomSlot, 1)
+    console.log(computerPickedSlot)
+    console.log(remainingSlots.length)
+    btnPickedByComputer = document.getElementById(computerPickedSlot)
+    console.log(btnPickedByComputer)
+    renderGame(btnPickedByComputer)
+    player =! player
+}
+
+
+// let myIndex = remainingSlots.indexOf(slot.id)
+// remainingSlots.splice(myIndex, 1)
