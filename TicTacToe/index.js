@@ -154,3 +154,4 @@ function test() {
 
 // let myIndex = remainingSlots.indexOf(slot.id)
 // remainingSlots.splice(myIndex, 1)
+//https://codeburst.io/comparison-of-two-arrays-using-javascript-3251d03877fe
