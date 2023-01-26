@@ -24,7 +24,8 @@ let player = true
 let symbol = ""
 let currentPlayer = ""
 let playerCount = 2
-
+const remainingSlotsDefault = ["slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "slot8", "slot9"]
+const remainingSlots = remainingSlotsDefault
 function resetGame() {
     for (i = 0; i < 9 ; i++) {
         slots[i].innerHTML = "-"
@@ -38,6 +39,7 @@ function resetGame() {
     } else {
         player = false
     }
+    remainingSlots = remainingSlotsDefault
 }
 
 function renderGame(slot) {
@@ -55,7 +57,12 @@ function renderGame(slot) {
             currentPlayer = player2Slots
         }
         console.log(currentPlayer)
-        currentPlayer.slot.push(slot.id) 
+        currentPlayer.slot.push(slot.id)
+        // console.log(slot)
+        // console.log(remainingSlots)
+        // console.log(remainingSlots.splice(slot.id, slot.id))
+        // let spliceRemainingSlots = remainingSlots.splice(slot.id, slot.id) 
+        // console.log(remainingSlots)
         player =! player
         checkWin()
         currentPlayer = ""
