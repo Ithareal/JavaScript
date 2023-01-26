@@ -22,13 +22,21 @@ const player2Slots = {
 
 let player = true
 let symbol = ""
-const player1 = "Player"
-const player2 = "Computer" 
 let currentPlayer = ""
+let playerCount = 2
 
 function resetGame() {
     for (i = 0; i < 9 ; i++) {
         slots[i].innerHTML = "-"
+        slots[i].classList.remove("clicked")
+    }
+    if( confirm("Do you want to play alone?")) {
+        playerCount = 1
+    }
+    if(confirm("Do you want to go first?")) {
+        player = true   
+    } else {
+        player = false
     }
 }
 
@@ -47,10 +55,17 @@ function renderGame(slot) {
             currentPlayer = player2Slots
         }
         console.log(currentPlayer)
-        currentPlayer.slot.push(slot.id)
+        currentPlayer.slot.push(slot.id) 
         player =! player
         checkWin()
-
+        currentPlayer = ""
+    }
+    if (playerCount == 2 && player == false) {
+        computerPlays()
+        console.log(player)
+        player =! player
+        console.log(player)
+    }
 }
 
 function checkWin() {
@@ -92,15 +107,23 @@ function checkWin() {
     ) 
     {
         console.log(player1Slots.slot)
-        btnReset.textContent = "YOU WIN"
-        if (confirm("NEW GAME?")) {
-    
+        if (currentPlayer == player1Slots) {
+            btnReset.textContent = "YOU WIN"
+        } else {
+            btnReset.textContent = "YOU LOSE"
         }
+        /*if (confirm("NEW GAME?")) {
+    
+        }*/
     }
 }
 
-}
 function fillSlot(fillSlot) {
     fillSlot.innerText = symbol
     fillSlot.classList.toggle("clicked")
+}
+
+function computerPlays() {
+    console.log("test")
+    
 }
