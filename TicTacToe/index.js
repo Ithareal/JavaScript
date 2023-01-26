@@ -19,7 +19,7 @@ const player1Slots = {
 const player2Slots = {
     slot: [],
 }
-
+let gameActive = true
 let btnPickedByComputer = ""
 let player = true
 let symbol = ""
@@ -41,39 +41,44 @@ function resetGame() {
         player = false
     }
     remainingSlots = remainingSlotsDefault
+    gameActive = true
 }
 
 function renderGame(slot) {
-    if (player == true){
-        symbol = "X"
-    } else {
-        symbol = "O"
-    }
-    console.log(slot)
-    if (slot.classList != "clicked") {
-        fillSlot(slot)
-        if (player == true) {
-            currentPlayer = player1Slots
+    if(gameActive == true) {
+        if (player == true){
+            symbol = "X"
         } else {
-            currentPlayer = player2Slots
+            symbol = "O"
         }
-        console.log(currentPlayer)
-        currentPlayer.slot.push(slot.id)
-        // console.log(slot)
-        // console.log(remainingSlots)
-        // console.log(remainingSlots.splice(slot.id, slot.id))
-        // let spliceRemainingSlots = remainingSlots.splice(slot.id, slot.id) 
-        // console.log(remainingSlots)
-        player =! player
-        checkWin()
-        currentPlayer = ""
-    }
-    if (playerCount == 1 && player == false) {
-        //computerPlays()
-        test()
-        console.log(player)
-        player =! player
-        console.log(player)
+        console.log(slot)
+        if (slot.classList != "clicked") {
+            fillSlot(slot)
+            if (player == true) {
+                currentPlayer = player1Slots
+            } else {
+                currentPlayer = player2Slots
+            }
+            console.log(currentPlayer)
+            currentPlayer.slot.push(slot.id)
+            let myIndex = remainingSlots.indexOf(slot.id)
+            remainingSlots.splice(myIndex, 1)
+            // console.log(slot)
+            // console.log(remainingSlots)
+            // console.log(remainingSlots.splice(slot.id, slot.id))
+            // let spliceRemainingSlots = remainingSlots.splice(slot.id, slot.id) 
+            // console.log(remainingSlots)
+            player =! player
+            checkWin()
+            currentPlayer = ""
+        }
+        if (playerCount == 1 && player == false) {
+            //computerPlays()
+            test()
+            console.log(player)
+            player =! player
+            console.log(player)
+        }
     }
 }
 
@@ -121,6 +126,7 @@ function checkWin() {
         } else {
             btnReset.textContent = "YOU LOSE"
         }
+        gameActive = false
         /*if (confirm("NEW GAME?")) {
     
         }*/
