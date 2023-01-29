@@ -41,6 +41,7 @@ function resetGame() {
         player = false
     }
     remainingSlots = remainingSlotsDefault
+    console.log(remainingSlots)
     gameActive = true
 }
 
@@ -60,6 +61,7 @@ function renderGame(slot) {
                 currentPlayer = player2Slots
             }
             console.log(currentPlayer)
+            console.log(remainingSlots)
             currentPlayer.slot.push(slot.id)
             let myIndex = remainingSlots.indexOf(slot.id)
             remainingSlots.splice(myIndex, 1)
@@ -156,6 +158,7 @@ function test() {
     player = !player
 }
 
+resetGame()
 
 // let myIndex = remainingSlots.indexOf(slot.id)
 // remainingSlots.splice(myIndex, 1)
