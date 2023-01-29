@@ -14,7 +14,7 @@ const btnReset = document.getElementById("btn1")
 const slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
 
 const player1Slots = {
-    slot : [],
+    slot: [],
 }
 const player2Slots = {
     slot: [],
@@ -28,15 +28,15 @@ let playerCount = 2
 const remainingSlotsDefault = ["slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "slot8", "slot9"]
 let remainingSlots = remainingSlotsDefault
 function resetGame() {
-    for (i = 0; i < 9 ; i++) {
+    for (i = 0; i < 9; i++) {
         slots[i].innerHTML = "-"
         slots[i].classList.remove("clicked")
     }
-    if( confirm("Do you want to play alone?")) {
+    if (confirm("Do you want to play alone?")) {
         playerCount = 1
     }
-    if(confirm("Do you want to go first?")) {
-        player = true   
+    if (confirm("Do you want to go first?")) {
+        player = true
     } else {
         player = false
     }
@@ -45,8 +45,8 @@ function resetGame() {
 }
 
 function renderGame(slot) {
-    if(gameActive == true) {
-        if (player == true){
+    if (gameActive == true) {
+        if (player == true) {
             symbol = "X"
         } else {
             symbol = "O"
@@ -68,7 +68,7 @@ function renderGame(slot) {
             // console.log(remainingSlots.splice(slot.id, slot.id))
             // let spliceRemainingSlots = remainingSlots.splice(slot.id, slot.id) 
             // console.log(remainingSlots)
-            player =! player
+            player = !player
             checkWin()
             currentPlayer = ""
         }
@@ -76,7 +76,7 @@ function renderGame(slot) {
             //computerPlays()
             test()
             console.log(player)
-            player =! player
+            player = !player
             console.log(player)
         }
     }
@@ -84,42 +84,41 @@ function renderGame(slot) {
 
 function checkWin() {
     if (
-    //horizontal check
-    currentPlayer.slot.includes("slot1") &&
-    currentPlayer.slot.includes("slot2") &&
-    currentPlayer.slot.includes("slot3") ||
+        //horizontal check
+        currentPlayer.slot.includes("slot1") &&
+        currentPlayer.slot.includes("slot2") &&
+        currentPlayer.slot.includes("slot3") ||
 
-    currentPlayer.slot.includes("slot4") &&
-    currentPlayer.slot.includes("slot5") &&
-    currentPlayer.slot.includes("slot6") ||
+        currentPlayer.slot.includes("slot4") &&
+        currentPlayer.slot.includes("slot5") &&
+        currentPlayer.slot.includes("slot6") ||
 
-    currentPlayer.slot.includes("slot7") &&
-    currentPlayer.slot.includes("slot8") &&
-    currentPlayer.slot.includes("slot9") ||
+        currentPlayer.slot.includes("slot7") &&
+        currentPlayer.slot.includes("slot8") &&
+        currentPlayer.slot.includes("slot9") ||
 
-    //vertical check
-    currentPlayer.slot.includes("slot1") &&
-    currentPlayer.slot.includes("slot4") &&
-    currentPlayer.slot.includes("slot7") ||
+        //vertical check
+        currentPlayer.slot.includes("slot1") &&
+        currentPlayer.slot.includes("slot4") &&
+        currentPlayer.slot.includes("slot7") ||
 
-    currentPlayer.slot.includes("slot2") &&
-    currentPlayer.slot.includes("slot5") &&
-    currentPlayer.slot.includes("slot8") ||
+        currentPlayer.slot.includes("slot2") &&
+        currentPlayer.slot.includes("slot5") &&
+        currentPlayer.slot.includes("slot8") ||
 
-    currentPlayer.slot.includes("slot3") &&
-    currentPlayer.slot.includes("slot6") &&
-    currentPlayer.slot.includes("slot9") ||
+        currentPlayer.slot.includes("slot3") &&
+        currentPlayer.slot.includes("slot6") &&
+        currentPlayer.slot.includes("slot9") ||
 
-    //diagonal check
-    currentPlayer.slot.includes("slot1") &&
-    currentPlayer.slot.includes("slot5") &&
-    currentPlayer.slot.includes("slot9") ||
+        //diagonal check
+        currentPlayer.slot.includes("slot1") &&
+        currentPlayer.slot.includes("slot5") &&
+        currentPlayer.slot.includes("slot9") ||
 
-    currentPlayer.slot.includes("slot3") &&
-    currentPlayer.slot.includes("slot5") &&
-    currentPlayer.slot.includes("slot7")
-    ) 
-    {
+        currentPlayer.slot.includes("slot3") &&
+        currentPlayer.slot.includes("slot5") &&
+        currentPlayer.slot.includes("slot7")
+    ) {
         console.log(player1Slots.slot)
         if (currentPlayer == player1Slots) {
             btnReset.textContent = "YOU WIN"
@@ -154,7 +153,7 @@ function test() {
     btnPickedByComputer = document.getElementById(computerPickedSlot)
     console.log(btnPickedByComputer)
     renderGame(btnPickedByComputer)
-    player =! player
+    player = !player
 }
 
 
