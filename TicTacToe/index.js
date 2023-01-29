@@ -26,7 +26,7 @@ let symbol = ""
 let currentPlayer = ""
 let playerCount = 2
 const remainingSlotsDefault = ["slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "slot8", "slot9"]
-let remainingSlots = remainingSlotsDefault
+let remainingSlots = [...remainingSlotsDefault]
 function resetGame() {
     for (i = 0; i < 9; i++) {
         slots[i].innerHTML = "-"
@@ -40,7 +40,7 @@ function resetGame() {
     } else {
         player = false
     }
-    remainingSlots = remainingSlotsDefault
+    remainingSlots = [...remainingSlotsDefault]
     console.log(remainingSlots)
     gameActive = true
 }
