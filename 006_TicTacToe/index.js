@@ -43,6 +43,7 @@ function resetGame() {
     remainingSlots = [...remainingSlotsDefault]
     console.log(remainingSlots)
     gameActive = true
+    btnReset.textContent = "RESTART GAME"
 }
 
 function renderGame(slot) {
@@ -63,8 +64,11 @@ function renderGame(slot) {
             console.log(currentPlayer)
             console.log(remainingSlots)
             currentPlayer.slot.push(slot.id)
-            let myIndex = remainingSlots.indexOf(slot.id)
-            remainingSlots.splice(myIndex, 1)
+            if (player == true) {
+                let myIndex = remainingSlots.indexOf(slot.id)
+                remainingSlots.splice(myIndex, 1)
+                console.log(remainingSlots)
+            }
             // console.log(slot)
             // console.log(remainingSlots)
             // console.log(remainingSlots.splice(slot.id, slot.id))
