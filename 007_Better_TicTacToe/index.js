@@ -9,8 +9,8 @@ const slot8 = document.getElementById("7")
 const slot9 = document.getElementById("8")
 const restartBtn = document.getElementById("restart-btn")
 
-slots = [ slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
 
+const slots = [ slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
 const defaultGameState = ["","","","","","","","",""]
 const defaultWinConditions = [
     //horizontal
@@ -31,6 +31,7 @@ let playerCount = 1
 let currentPlayer = 1
 let gameState = []
 let currentSymbol = "X"
+let isAlive = true
 
 function prompting() {
     playerCount = confirm("Do you want to play alone?") ? 1 : 2
@@ -40,7 +41,6 @@ function prompting() {
 function startGame(){
     prompting()
     gameState = [...defaultGameState]
-    currentSymbol = currentPlayer ? "X" : "O"
 }
 
 function checkWin() {
@@ -65,9 +65,29 @@ function checkWin() {
 }
 
 function renderGame(slot) {
+    isAlive ? "" : {return: ""}
+    console.log(isAlive)
+    currentSymbol = currentPlayer ? "X" : "O"
     gameState[slot] = currentSymbol
     slots[slot].textContent = gameState[slot]
     checkWin()
+    currentPlayer = !currentPlayer
+    playerCount = 1 ? computerPlays() : ""
+}
+
+function computerPlays() {
+    
+    currentSymbol = currentPlayer ? "X" : "O"
+    gameState[slot] = currentSymbol
+    slots[slot].textContent = gameState[slot]
+}
+
+function restartGame() {
+    for (i = 0; i <= 8; i++){
+        slots[i].textContent = "-"
+    }
+    restartBtn.textContent = "RESTART GAME"
+    startGame()
 }
 
 startGame()
