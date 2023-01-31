@@ -72,14 +72,28 @@ function renderGame(slot) {
     slots[slot].textContent = gameState[slot]
     checkWin()
     currentPlayer = !currentPlayer
-    playerCount = 1 ? computerPlays() : ""
+    playerCount = 1 ? computerPlays() : "hello"
 }
 
 function computerPlays() {
-    
+    let randomNumber = 0
     currentSymbol = currentPlayer ? "X" : "O"
-    gameState[slot] = currentSymbol
-    slots[slot].textContent = gameState[slot]
+    for (i = 0; i <= 8; i++) {
+        randomNumber = Math.floor(Math.random()*8)
+        console.log(randomNumber + "hello")
+        gameState[randomNumber] = "" ? gameState[randomNumber] = currentSymbol : ""// : continue
+        
+    }
+    console.log(randomNumber)
+    let randomClassName = JSON.stringify(randomNumber)
+    console.log(randomClassName)
+    let slot = document.getElementById(randomClassName)
+    let gameStateSlot = randomNumber
+    gameState[gameStateSlot] = currentSymbol
+    console.log(slot)
+    slot.textContent = gameState[gameStateSlot]
+
+    //fix this here
 }
 
 function restartGame() {
