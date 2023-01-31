@@ -30,6 +30,7 @@ let winConditions = [...defaultWinConditions]
 let playerCount = 1
 let currentPlayer = 1
 let gameState = []
+let remainingSlots = [...slots]
 let currentSymbol = "X"
 let isAlive = true
 
@@ -66,10 +67,13 @@ function checkWin() {
 
 function renderGame(slot) {
     isAlive ? "" : {return: ""}
+    slots[slot].classList.contains("clicked") ? //return;
     console.log(isAlive)
     currentSymbol = currentPlayer ? "X" : "O"
     gameState[slot] = currentSymbol
     slots[slot].textContent = gameState[slot]
+    slots[slot].classList.add("clicked")
+    remainingSlots.splice(slot, 1)
     checkWin()
     currentPlayer = !currentPlayer
     playerCount = 1 ? computerPlays() : "hello"
@@ -85,6 +89,7 @@ function computerPlays() {
         
     }
     console.log(randomNumber)
+    remainingSlots.splice(randomNumber, 1)
     let randomClassName = JSON.stringify(randomNumber)
     console.log(randomClassName)
     let slot = document.getElementById(randomClassName)
