@@ -11,6 +11,7 @@ const restartBtn = document.getElementById("restart-btn")
 
 
 const slots = [ slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
+const defaultRemainingSlots = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 const defaultGameState = ["","","","","","","","",""]
 const defaultWinConditions = [
     //horizontal
@@ -66,8 +67,8 @@ function checkWin() {
 }
 
 function renderGame(slot) {
-    isAlive ? "" : {return: ""}
-    slots[slot].classList.contains("clicked") ? //return;
+    if (!isAlive) return;
+    if(slots[slot].classList.contains("clicked")) return;
     console.log(isAlive)
     currentSymbol = currentPlayer ? "X" : "O"
     gameState[slot] = currentSymbol
@@ -82,12 +83,9 @@ function renderGame(slot) {
 function computerPlays() {
     let randomNumber = 0
     currentSymbol = currentPlayer ? "X" : "O"
-    for (i = 0; i <= 8; i++) {
-        randomNumber = Math.floor(Math.random()*8)
-        console.log(randomNumber + "hello")
-        gameState[randomNumber] = "" ? gameState[randomNumber] = currentSymbol : ""// : continue
-        
-    }
+    randomNumber = Math.floor(Math.random()*remainingSlots.length-1)
+    console.log(randomNumber + "hello")
+    gameState[randomNumber] = "" ? gameState[randomNumber] = currentSymbol : ""// : continue
     console.log(randomNumber)
     remainingSlots.splice(randomNumber, 1)
     let randomClassName = JSON.stringify(randomNumber)
